@@ -1,0 +1,33 @@
+.modal__container_image {
+  margin: auto;
+  width: 498px;
+  height: 610px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+}
+
+.modal__image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 498px;
+}
+
+.image-name {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-left: 32px;
+}
+
+.image-weather {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-left: 32px;
+}
+
+.modal__close-button_image {
+  top: 24px;
+  right: 24px;
+}

@@ -1,0 +1,22 @@
+.main {
+  padding: 0 20px;
+}
+
+.card_section {
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clothing__cards {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 19px;
+  margin: 34px 0 0 auto;
+  padding: 0;
+  list-style-type: none;
+}

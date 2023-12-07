@@ -1,3 +1,4 @@
+import "../blocks/WeatherCard.css";
 import { useState, useEffect } from "react";
 import { getForecastWeather, parseWeatherData } from "../utils/weatherApi.js";
 import clearDay from "../images/day/day.png";

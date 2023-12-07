@@ -1,3 +1,4 @@
+import "../blocks/ModalWithForm.css";
 import closeButton from "../images/close-button-gray.svg";
 
 const ModalWithForm = ({

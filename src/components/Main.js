@@ -1,3 +1,4 @@
+import "../blocks/Main.css";
 import { useMemo } from "react";
 import { defaultClothingItems } from "../utils/constants.js";
 import WeatherCard from "./WeatherCard";

@@ -1,3 +1,4 @@
+import "../blocks/ItemModal.css";
 import closeButton from "../images/close-button-white.png";
 const ItemModal = ({ onClose, selectedCard }) => {
   return (

@@ -1,3 +1,4 @@
+import "../blocks/Header.css";
 import { useEffect, useState } from "react";
 import { getForecastWeather } from "../utils/weatherApi";
 import avatar from "../images/avatar.jpg";

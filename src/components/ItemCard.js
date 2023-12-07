@@ -1,3 +1,4 @@
+import "../blocks/ItemCard.css";
 const ItemCard = ({ item, onSelectCard }) => {
   return (
     <li className="card" onClick={() => onSelectCard(item)}>

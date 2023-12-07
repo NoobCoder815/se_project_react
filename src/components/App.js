@@ -1,3 +1,4 @@
+import "../blocks/App.css";
 import { useEffect, useState } from "react";
 import { getForecastWeather, parseWeatherTemp } from "../utils/weatherApi";
 import Header from "./Header";

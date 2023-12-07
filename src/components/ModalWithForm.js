@@ -16,13 +16,15 @@ const ModalWithForm = ({
           className="modal__close-button"
           onMouseDown={onClose}
         >
-          <img src={closeButton}></img>
+          <img src={closeButton} alt="close button"></img>
         </button>
         <p className="modal__label">{title}</p>
-        <form>{children}</form>
-        <button type="submit" className="modal__confirm-button">
-          {buttonText}
-        </button>
+        <form>
+          {children}
+          <button type="submit" className="modal__confirm-button">
+            {buttonText}
+          </button>
+        </form>
       </div>
     </div>
   );

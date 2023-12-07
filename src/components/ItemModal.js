@@ -1,5 +1,6 @@
 import "../blocks/ItemModal.css";
 import closeButton from "../images/close-button-white.png";
+
 const ItemModal = ({ onClose, selectedCard }) => {
   return (
     <div className="modal">
@@ -13,12 +14,11 @@ const ItemModal = ({ onClose, selectedCard }) => {
         <p className="image-weather">
           Weather: <span>{selectedCard.weather}</span>
         </p>
-
         <button
           className="modal__close-button modal__close-button_image"
           onMouseDown={onClose}
         >
-          <img src={closeButton}></img>
+          <img src={closeButton} alt="close button"></img>
         </button>
       </div>
     </div>

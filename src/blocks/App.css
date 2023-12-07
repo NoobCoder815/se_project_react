@@ -1,8 +1,6 @@
 .page {
   margin: 0;
-  width: 100wv;
   padding: 32px 42px 24px 40px;
   background-color: white;
-  min-height: 100vh;
   font-family: "Inter", sans-serif;
 }

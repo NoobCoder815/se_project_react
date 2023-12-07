@@ -65,10 +65,13 @@
 .modal__weather_options {
   width: 173px;
   height: 108px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__input_radio {
   margin-bottom: 8px;
+  margin-right: 5px;
 }
 
 .modal__confirm-button {

@@ -1,30 +1,15 @@
 import "../blocks/Header.css";
-import { useEffect, useState } from "react";
-import { getForecastWeather } from "../utils/weatherApi";
+import { currentDate } from "../utils/constants.js";
 import avatar from "../images/avatar.jpg";
 import headerLogo from "../images/logo.png";
 
-const Header = ({ onCreateModal }) => {
-  const [cityName, setCityName] = useState("");
-  const currentDate = new Date().toLocaleDateString("default", {
-    month: "long",
-    day: "numeric",
-  });
-
-  useEffect(() => {
-    getForecastWeather()
-      .then((data) => {
-        setCityName(data.name);
-      })
-      .catch((err) => console.log(err));
-  });
-
+const Header = ({ city, onCreateModal }) => {
   return (
     <header className="header">
       <div className="header__logo">
         <img src={headerLogo} alt="What To Wear"></img>
         <p className="header__date-location">
-          {currentDate}, {cityName}
+          {currentDate}, {city}
         </p>
       </div>
 

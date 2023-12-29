@@ -1,0 +1,32 @@
+.clothing-section {
+  display: flex;
+}
+
+.clothing-section__header {
+  color: #000;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.clothing-section__add-clothes-button {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  border: none;
+  background-color: transparent;
+  opacity: 0.5;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+}
+
+.clothing-section__card-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 19px;
+  margin: 34px auto 0 auto;
+  padding: 0;
+  list-style-type: none;
+}

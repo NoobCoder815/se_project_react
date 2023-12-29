@@ -1,4 +1,4 @@
-.modal__container_image {
+.modal__container-image {
   margin: auto;
   width: 498px;
   height: 610px;
@@ -25,6 +25,20 @@
   line-height: 1.5rem;
   font-weight: 700;
   margin-left: 32px;
+}
+
+.modal__delete-btn {
+  position: absolute;
+  bottom: 65px;
+  right: 32px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5rem;
+  color: red;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
 }
 
 .modal__close-button_image {

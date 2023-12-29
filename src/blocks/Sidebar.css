@@ -1,0 +1,15 @@
+.sidebar__info {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: black;
+  height: 56px;
+  padding-left: 20px;
+  align-items: center;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+  margin-right: 16px;
+}

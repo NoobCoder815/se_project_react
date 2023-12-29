@@ -1,34 +1,36 @@
 import "../blocks/Main.css";
-import { useMemo } from "react";
-import { defaultClothingItems } from "../utils/constants.js";
+import { useContext, useMemo } from "react";
+import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 
-const Main = ({ weatherTemp, onSelectCard, weatherImg }) => {
+const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
+  const { tempUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherTemp?.[tempUnit] || "No Weather Data";
   const weatherType = useMemo(() => {
-    if (weatherTemp >= 86) {
+    if (temp >= 86) {
       return "hot";
-    } else if (weatherTemp <= 64) {
+    } else if (temp <= 64) {
       return "cold";
     } else {
       return "warm";
     }
   }, [weatherTemp]);
 
-  const filteredCards = defaultClothingItems.filter((item) => {
+  const filteredCards = items.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   });
 
   return (
     <main className="main">
-      <WeatherCard weatherTemp={weatherTemp} weatherImg={weatherImg} />
-      <section className="card_section" id="card-section">
-        Today is {weatherTemp}&#xb0;F / You may want to wear:
-        <div className="clothing__cards">
+      <WeatherCard weatherTemp={temp} weatherImg={weatherImg} />
+      <section className="card__section" id="card-section">
+        Today is {temp}&#xb0;{tempUnit} / You may want to wear:
+        <ul className="clothing__cards">
           {filteredCards.map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
-        </div>
+        </ul>
       </section>
     </main>
   );

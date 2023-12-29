@@ -35,45 +35,6 @@
   line-height: 1.25rem;
 }
 
-.modal__label_weather {
-  margin-bottom: 12px;
-}
-
-.modal__input {
-  width: 100%;
-  background-color: transparent;
-  margin-top: 8px;
-  margin-bottom: 24px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border: none;
-  border-color: #000;
-  border-bottom: 1px solid #000;
-}
-
-.modal__input::placeholder {
-  font-size: 1rem;
-  line-height: 1.25rem;
-}
-
-.modal__input_label {
-  font-weight: 700;
-  margin-bottom: 8px;
-  margin-left: 2px;
-}
-
-.modal__weather_options {
-  width: 173px;
-  height: 108px;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal__input_radio {
-  margin-bottom: 8px;
-  margin-right: 5px;
-}
-
 .modal__confirm-button {
   font-size: 1rem;
   line-height: 1.25rem;

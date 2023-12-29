@@ -1,19 +1,24 @@
 import "../blocks/Header.css";
 import { currentDate } from "../utils/constants.js";
 import avatar from "../images/avatar.jpg";
-import headerLogo from "../images/logo.png";
+import logo from "../images/logo.png";
+import ToggleSwitch from "./ToggleSwitch.js";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const Header = ({ city, onCreateModal }) => {
   return (
     <header className="header">
       <div className="header__logo">
-        <img src={headerLogo} alt="What To Wear"></img>
+        <NavLink to="/">
+          <img src={logo} alt="What To Wear"></img>
+        </NavLink>
         <p className="header__date-location">
           {currentDate}, {city}
         </p>
       </div>
 
       <div className="header__nav">
+        <ToggleSwitch />
         <button
           type="text"
           className="add-clothes-button"
@@ -21,7 +26,9 @@ const Header = ({ city, onCreateModal }) => {
         >
           + Add clothes
         </button>
-        <p className="header__username">Terrence Tegegne</p>
+        <NavLink to="/profile" className="header__username-link">
+          <p className="header__username">Terrence Tegegne</p>
+        </NavLink>
         <img className="header__avatar" src={avatar} alt="Avatar"></img>
       </div>
     </header>

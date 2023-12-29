@@ -21,11 +21,16 @@ export const getForecastWeather = () => {
 };
 
 export const parseWeatherTemp = (data) => {
-  const temperature = data.main.temp;
-  return Math.ceil(temperature);
+  const temp = data.main.temp;
+  const temperature = {
+    F: `${Math.round(temp)}`,
+    C: `${Math.round(((temp - 32) * 5) / 9)}`,
+  };
+  return temperature;
 };
 
 export const parseWeatherData = (data) => {
   const weather = data.weather[0].main;
+  console.log(data);
   return weather;
 };

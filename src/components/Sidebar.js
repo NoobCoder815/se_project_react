@@ -1,7 +1,7 @@
-import "../blocks/Sidebar.css";
+import "../blocks/SideBar.css";
 import avatar from "../images/avatar.jpg";
 
-const Sidebar = () => {
+const SideBar = () => {
   return (
     <>
       <div className="sidebar__info">
@@ -12,4 +12,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBar;

@@ -1,9 +1,9 @@
 import "../blocks/Header.css";
 import { currentDate } from "../utils/constants.js";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import avatar from "../images/avatar.jpg";
 import logo from "../images/logo.png";
 import ToggleSwitch from "./ToggleSwitch.js";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const Header = ({ city, onCreateModal }) => {
   return (

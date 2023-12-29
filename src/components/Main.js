@@ -5,8 +5,8 @@ import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 
 const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
-  const { tempUnit } = useContext(CurrentTemperatureUnitContext);
-  const temp = weatherTemp?.[tempUnit] || "No Weather Data";
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherTemp?.[currentTemperatureUnit] || "No Weather Data";
   const weatherType = useMemo(() => {
     if (temp >= 86) {
       return "hot";
@@ -25,7 +25,7 @@ const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
     <main className="main">
       <WeatherCard weatherTemp={temp} weatherImg={weatherImg} />
       <section className="card__section" id="card-section">
-        Today is {temp}&#xb0;{tempUnit} / You may want to wear:
+        Today is {temp}&#xb0;{currentTemperatureUnit} / You may want to wear:
         <ul className="clothing__cards">
           {filteredCards.map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />

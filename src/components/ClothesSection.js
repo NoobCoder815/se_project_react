@@ -9,8 +9,8 @@ const ClothesSection = ({
   onCreateModal,
   items,
 }) => {
-  const { tempUnit } = useContext(CurrentTemperatureUnitContext);
-  const temp = weatherTemp?.[tempUnit] || "No Weather Data";
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherTemp?.[currentTemperatureUnit] || "No Weather Data";
   const weatherType = useMemo(() => {
     if (temp >= 86) {
       return "hot";

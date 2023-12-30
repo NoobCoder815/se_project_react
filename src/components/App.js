@@ -1,5 +1,5 @@
 import "../blocks/App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import { weatherOptions } from "../utils/constants.js";
@@ -44,8 +44,8 @@ const App = () => {
 
   // useEffect(() => {
   //   getItems()
-  //     .then((data) => {
-  //       setClothingItems(data);
+  //     .then((res) => {
+  //       setClothingItems(res);
   //     })
   //     .catch(console.eror);
   // }, []);
@@ -73,6 +73,12 @@ const App = () => {
   };
 
   useEffect(() => {
+    getItems()
+      .then((res) => {
+        setClothingItems(res);
+      })
+      .catch(console.eror);
+
     getForecastWeather()
       .then((data) => {
         const dayTime =

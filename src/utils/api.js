@@ -12,13 +12,10 @@ const request = (url, option) => {
 };
 
 export function getItems() {
-  return (
-    request(`${api.baseUrl}/items`),
-    {
-      method: "GET",
-      headers: api.headers,
-    }
-  );
+  return request(`${api.baseUrl}/items`, {
+    method: "GET",
+    headers: api.headers,
+  });
 }
 
 export function addNewItem(itemData) {

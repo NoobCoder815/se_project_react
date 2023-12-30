@@ -8,9 +8,15 @@ const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.[currentTemperatureUnit] || "No Weather Data";
   const weatherType = useMemo(() => {
-    if (temp >= 86) {
+    if (
+      (currentTemperatureUnit === "F" && temp >= 86) ||
+      (currentTemperatureUnit === "C" && temp >= 30)
+    ) {
       return "hot";
-    } else if (temp <= 64) {
+    } else if (
+      (currentTemperatureUnit === "F" && temp <= 64) ||
+      (currentTemperatureUnit === "C" && temp <= 18)
+    ) {
       return "cold";
     } else {
       return "warm";

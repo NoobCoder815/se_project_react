@@ -3,7 +3,7 @@ const api = {
   headers: { "Content-Type": "application/json" },
 };
 
-const checkServerResponse = (res) => {
+export const checkServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 

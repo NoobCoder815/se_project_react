@@ -21,7 +21,7 @@ const Header = ({ city, onCreateModal }) => {
         <ToggleSwitch />
         <button
           type="text"
-          className="add-clothes-button"
+          className="header__add-clothes-button"
           onClick={onCreateModal}
         >
           + Add clothes

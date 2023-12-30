@@ -4,7 +4,7 @@ import closeButton from "../images/close-button-white.png";
 const ItemModal = ({ onClose, selectedCard, onClick }) => {
   return (
     <div className="modal">
-      <div className="modal__container-image">
+      <div className="modal__image-container">
         <img
           className="modal__image"
           src={selectedCard.imageUrl}

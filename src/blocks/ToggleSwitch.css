@@ -36,6 +36,7 @@
   position: absolute;
   cursor: pointer;
   text-align: center;
+  transition: width linear 0.3s;
 }
 
 .switch__slider-F {
@@ -52,6 +53,7 @@
   position: absolute;
   color: #7e7e7e;
 }
+
 .switch__temp-F {
   top: -10px;
   left: 8px;

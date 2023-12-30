@@ -1,23 +1,22 @@
+import { checkServerResponse } from "./api";
 // Warner Robins
 // const latitude = "32.629189";
 // const longitude = "-83.612930";
-// Beijing
-// const latitude = "39.9042";
-// const longitude = "116.4074";
+// Guatemala
+const latitude = "14.641980";
+const longitude = "-90.513237";
 // New York
 // const latitude = "40.7128";
 // const longitude = "-74.0060";
 // Miami
-const latitude = "25.7617";
-const longitude = "-80.1918";
+// const latitude = "25.7617";
+// const longitude = "-80.1918";
 const APIKey = "1b6fc5afa73ea7210195e57b01839cac";
 
 export const getForecastWeather = () => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIKey}`
-  ).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  ).then(checkServerResponse);
 };
 
 export const parseWeatherTemp = (data) => {
@@ -31,6 +30,5 @@ export const parseWeatherTemp = (data) => {
 
 export const parseWeatherData = (data) => {
   const weather = data.weather[0].main;
-  console.log(data);
   return weather;
 };

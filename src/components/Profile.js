@@ -1,5 +1,5 @@
 import "../blocks/Profile.css";
-import SideBar from "./Sidebar";
+import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
 
 const Profile = ({ weatherTemp, onSelectCard, onCreateModal, items }) => {

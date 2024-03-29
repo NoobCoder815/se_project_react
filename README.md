@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Link to backend repo - [Backend] (https://github.com/NoobCoder815/se_project_express).
+Link to backend repo - [Backend](https://github.com/NoobCoder815/se_project_express).
 
 ## Available Scripts
 

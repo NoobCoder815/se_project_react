@@ -1,7 +1,16 @@
 import "../blocks/ClothesSection.css";
+import React from "react";
 import ItemCard from "./ItemCard";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
-const ClothesSection = ({ items, onSelectCard, onCreateModal }) => {
+const ClothesSection = ({
+  items,
+  onSelectCard,
+  onCreateModal,
+  handleCardLike,
+}) => {
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <>
       <div className="clothing-section">
@@ -16,7 +25,13 @@ const ClothesSection = ({ items, onSelectCard, onCreateModal }) => {
       </div>
       <ul className="clothing-section__card-list">
         {items.map((item) => (
-          <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
+          <ItemCard
+            key={item._id}
+            id={item._id}
+            item={item}
+            onSelectCard={onSelectCard}
+            handleCardLike={handleCardLike}
+          />
         ))}
       </ul>
     </>

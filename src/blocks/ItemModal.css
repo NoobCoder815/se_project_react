@@ -10,7 +10,15 @@
 .modal__image {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  width: 498px;
+  object-fit: cover;
+  width: 100%;
+  max-height: 498px;
+}
+
+.image__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .image-name {
@@ -28,17 +36,20 @@
 }
 
 .modal__delete-btn {
-  position: absolute;
-  bottom: 65px;
-  right: 32px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5rem;
+  margin-right: 32px;
+  margin-top: 20px;
   color: red;
   border: none;
   outline: none;
   background: none;
   cursor: pointer;
+}
+
+.modal__delete-btn_hidden {
+  visibility: hidden;
 }
 
 .modal__close-button_image {

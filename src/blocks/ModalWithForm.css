@@ -35,7 +35,7 @@
   line-height: 1.25rem;
 }
 
-.modal__confirm-button {
+.modal__button {
   font-size: 1rem;
   line-height: 1.25rem;
   color: #fff;
@@ -46,6 +46,6 @@
   cursor: pointer;
 }
 
-.modal__confirm-button:hover {
+.modal__button:hover {
   opacity: 0.6;
 }

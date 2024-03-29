@@ -59,9 +59,17 @@
   left: 8px;
 }
 
+.switch__temp-F:hover {
+  cursor: pointer;
+}
+
 .switch__temp-C {
   top: -11px;
   left: 36px;
+}
+
+.switch__temp-C:hover {
+  cursor: pointer;
 }
 
 .switch__active {

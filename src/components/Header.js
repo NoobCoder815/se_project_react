@@ -1,11 +1,20 @@
 import "../blocks/Header.css";
+import React from "react";
 import { currentDate } from "../utils/constants.js";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import avatar from "../images/avatar.jpg";
 import logo from "../images/logo.png";
 import ToggleSwitch from "./ToggleSwitch.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
-const Header = ({ city, onCreateModal }) => {
+const Header = ({
+  city,
+  onCreateModal,
+  onRegisterModal,
+  onLoginModal,
+  isLoggedIn,
+}) => {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <header className="header">
       <div className="header__logo">
@@ -19,17 +28,42 @@ const Header = ({ city, onCreateModal }) => {
 
       <div className="header__nav">
         <ToggleSwitch />
-        <button
-          type="text"
-          className="header__add-clothes-button"
-          onClick={onCreateModal}
-        >
-          + Add clothes
-        </button>
-        <NavLink to="/profile" className="header__username-link">
-          <p className="header__username">Terrence Tegegne</p>
-        </NavLink>
-        <img className="header__avatar" src={avatar} alt="Avatar"></img>
+        {isLoggedIn ? (
+          <>
+            <button
+              type="text"
+              className="header__add-clothes-button"
+              onClick={onCreateModal}
+            >
+              + Add clothes
+            </button>
+            <NavLink to="/profile" className="header__username-link">
+              <p className="header__username"> {`${currentUser.data.name}`}</p>
+            </NavLink>
+            <img
+              className="header__avatar"
+              src={currentUser.data.avatar}
+              alt="Avatar"
+            ></img>
+          </>
+        ) : (
+          <>
+            <button
+              className="header__register"
+              type="text"
+              onClick={onRegisterModal}
+            >
+              Sign Up
+            </button>{" "}
+            <button
+              className="header__login"
+              type="text"
+              onClick={onLoginModal}
+            >
+              Log In
+            </button>{" "}
+          </>
+        )}
       </div>
     </header>
   );

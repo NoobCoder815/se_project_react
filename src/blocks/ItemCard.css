@@ -21,11 +21,30 @@
   border-radius: 20px;
 }
 
-.card__name {
+.card__description {
+  display: flex;
   position: absolute;
+  align-items: center;
+}
+
+.card__name {
   padding: 2px 12px;
   border-radius: 4px;
   background-color: #fff;
-  top: 15px;
   font-size: 1rem;
+  margin-right: 5px;
+}
+
+.card__like-button {
+  background: transparent url(../images/like-button.svg) center no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 21px;
+  height: 18px;
+  margin-left: auto;
+  padding: 10px 10px 8px 11px;
+}
+
+.card__like-button_active {
+  background: transparent url(../images/like-button-active.svg) center no-repeat;
 }

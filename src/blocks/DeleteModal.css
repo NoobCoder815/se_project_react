@@ -1,0 +1,37 @@
+.modal_type_delete {
+  height: 280px;
+  display: flex;
+  text-align: center;
+}
+
+.modal__label_delete {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: center;
+  margin-bottom: 54px;
+  margin-top: 34px;
+  padding-left: 36px;
+}
+
+.modal__button_type_delete {
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: #000;
+  font-weight: 700;
+}
+
+.modal__delete_confirmation {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__delete-button {
+  font-size: 1.25rem;
+  background-color: transparent;
+  cursor: pointer;
+  color: red;
+  border: none;
+  margin-bottom: 24px;
+  font-weight: 700;
+}

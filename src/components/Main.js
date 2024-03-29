@@ -4,7 +4,13 @@ import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUni
 import WeatherCard from "./WeatherCard";
 import ItemCard from "./ItemCard";
 
-const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
+const Main = ({
+  weatherTemp,
+  onSelectCard,
+  weatherImg,
+  items,
+  handleCardLike,
+}) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.[currentTemperatureUnit] || "No Weather Data";
   const weatherType = useMemo(() => {
@@ -34,7 +40,13 @@ const Main = ({ weatherTemp, onSelectCard, weatherImg, items }) => {
         Today is {temp}&#xb0;{currentTemperatureUnit} / You may want to wear:
         <ul className="clothing__cards">
           {filteredCards.map((item) => (
-            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
+            <ItemCard
+              key={item._id}
+              id={item._id}
+              item={item}
+              onSelectCard={onSelectCard}
+              handleCardLike={handleCardLike}
+            />
           ))}
         </ul>
       </section>

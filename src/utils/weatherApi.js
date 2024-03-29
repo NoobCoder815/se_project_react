@@ -1,10 +1,10 @@
 import { checkServerResponse } from "./api";
 // Warner Robins
-// const latitude = "32.629189";
-// const longitude = "-83.612930";
+const latitude = "32.629189";
+const longitude = "-83.612930";
 // Guatemala
-const latitude = "14.641980";
-const longitude = "-90.513237";
+// const latitude = "14.641980";
+// const longitude = "-90.513237";
 // New York
 // const latitude = "40.7128";
 // const longitude = "-74.0060";

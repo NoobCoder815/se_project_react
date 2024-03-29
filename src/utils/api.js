@@ -1,7 +1,4 @@
-const api = {
-  baseUrl: "http://localhost:3001",
-  headers: { "Content-Type": "application/json" },
-};
+const baseUrl = "http://localhost:3001";
 
 export const checkServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
@@ -12,16 +9,23 @@ const request = (url, option) => {
 };
 
 export function getItems() {
-  return request(`${api.baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "GET",
-    headers: api.headers,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   });
 }
 
-export function addNewItem(itemData) {
-  return request(`${api.baseUrl}/items`, {
+export function addNewItem(itemData, token) {
+  return request(`${baseUrl}/items`, {
     method: "POST",
-    headers: api.headers,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       name: itemData.name,
       weather: itemData.weather,
@@ -30,9 +34,35 @@ export function addNewItem(itemData) {
   });
 }
 
-export function deleteItem(itemId) {
-  return request(`${api.baseUrl}/items/${itemId}`, {
+export function deleteItem(itemId, token) {
+  return request(`${baseUrl}/items/${itemId}`, {
     method: "DELETE",
-    headers: api.headers,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export function addCardLike(itemId, token) {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export function removeCardLike(itemId, token) {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   });
 }

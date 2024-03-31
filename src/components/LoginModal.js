@@ -4,12 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as auth from "../utils/auth";
 import ModalWithForm from "./ModalWithForm";
 
-const LoginModal = ({
-  handleCloseModal,
-  isOpen,
-  handleLogin,
-  onRegisterModal,
-}) => {
+const LoginModal = ({ handleCloseModal, handleLogin, onRegisterModal }) => {
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",

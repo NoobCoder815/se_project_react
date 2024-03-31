@@ -86,10 +86,7 @@ const App = () => {
     api
       .addNewItem(values, token)
       .then((values) => {
-        console.log(clothingItems);
-        console.log(values);
-        setClothingItems([values, ...clothingItems]);
-        handleCloseModal();
+        setClothingItems([values.data, ...clothingItems]);
       })
       .catch(console.error);
   };
@@ -114,7 +111,7 @@ const App = () => {
           .addCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
           .catch((err) => console.log(err))
@@ -122,7 +119,7 @@ const App = () => {
           .removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
           .catch((err) => console.log(err));
@@ -131,7 +128,6 @@ const App = () => {
   const updateProfileData = (userData) => {
     const token = localStorage.getItem("jwt");
     auth.editProfileData(userData, token).then((userData) => {
-      console.log(userData);
       setCurrentUser({ data: userData });
     });
   };

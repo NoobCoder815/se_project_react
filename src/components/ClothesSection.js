@@ -9,8 +9,6 @@ const ClothesSection = ({
   onCreateModal,
   handleCardLike,
 }) => {
-  const currentUser = React.useContext(CurrentUserContext);
-
   return (
     <>
       <div className="clothing-section">

@@ -4,7 +4,7 @@ export const checkServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-const request = (url, option) => {
+export const request = (url, option) => {
   return fetch(url, option).then(checkServerResponse);
 };
 

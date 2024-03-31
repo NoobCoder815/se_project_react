@@ -22,12 +22,13 @@ const SideBar = ({ onEditModal, handleSignOut }) => {
         />
         {`${currentUser.data.name}`}
       </div>
+      <div className="sidebar__buttons">
       <button className="edit_profile" onClick={onEditModal} type="button">
         Change profile data
       </button>
       <button className="sign-out" onClick={signOut} type="button">
         Log out
-      </button>
+      </button></div>
     </div>
   );
 };

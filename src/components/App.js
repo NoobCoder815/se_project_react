@@ -58,9 +58,16 @@ const App = () => {
     currentTemperatureUnit === "F" ? setTempUnit("C") : setTempUnit("F");
   };
 
-  const handleLogin = () => {
-    handleTokenCheck();
-    handleCloseModal();
+  const handleLogin = (values) => {
+    auth
+      .signIn(values.email, values.password)
+      .then((data) => {
+        if (data.token) {
+          handleTokenCheck();
+          handleCloseModal();
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleSignOut = () => {
@@ -71,13 +78,16 @@ const App = () => {
   const handleTokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
-      auth.checkToken(jwt).then((data) => {
-        if (data) {
-          setIsLoggedIn(true);
-          setCurrentUser({ data });
-          history.push("/profile");
-        }
-      });
+      auth
+        .checkToken(jwt)
+        .then((data) => {
+          if (data) {
+            setIsLoggedIn(true);
+            setCurrentUser({ data });
+            history.push("/profile");
+          }
+        })
+        .catch((err) => console.log(err));
     }
   };
   // NEEDS WORK
@@ -86,12 +96,14 @@ const App = () => {
     api
       .addNewItem(values, token)
       .then((values) => {
-        setClothingItems([values.data, ...clothingItems]);
+        setClothingItems([values, ...clothingItems]);
+        handleCloseModal();
       })
       .catch(console.error);
   };
 
-  const handleDeleteItem = () => {
+  const handleDeleteItem = (e) => {
+    e.preventDefault();
     const token = localStorage.getItem("jwt");
     api
       .deleteItem(selectedCard._id, token)
@@ -111,7 +123,7 @@ const App = () => {
           .addCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard.data : c))
+              cards.map((c) => (c._id === id ? updatedCard : c))
             );
           })
           .catch((err) => console.log(err))
@@ -119,7 +131,7 @@ const App = () => {
           .removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard.data : c))
+              cards.map((c) => (c._id === id ? updatedCard : c))
             );
           })
           .catch((err) => console.log(err));
@@ -127,9 +139,13 @@ const App = () => {
 
   const updateProfileData = (userData) => {
     const token = localStorage.getItem("jwt");
-    auth.editProfileData(userData, token).then((userData) => {
-      setCurrentUser({ data: userData });
-    });
+    auth
+      .editProfileData(userData, token)
+      .then((userData) => {
+        setCurrentUser({ data: userData });
+        handleCloseModal();
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {

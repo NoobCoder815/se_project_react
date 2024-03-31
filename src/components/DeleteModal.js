@@ -7,16 +7,16 @@ const DeleteModal = ({ onClose, onClick }) => {
     <ModalWithForm
       name="delete"
       onClose={onClose}
-      buttonText="Cancel"
-      onSubmit={onClose}
+      buttonText="Yes, delete item"
+      onSubmit={onClick}
     >
       <div className="modal__delete_confirmation">
         <p className="modal__label_delete">
           Are you sure you want to delete this item? <br></br>This action is
           irreversible.
         </p>
-        <button className="modal__delete-button" onMouseDown={onClick}>
-          Yes, delete item
+        <button className="modal__cancel-button" onMouseDown={onClose}>
+          Cancel
         </button>
       </div>
     </ModalWithForm>

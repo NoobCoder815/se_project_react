@@ -58,6 +58,13 @@ const App = () => {
     currentTemperatureUnit === "F" ? setTempUnit("C") : setTempUnit("F");
   };
 
+  const handleRegistration = (values) => {
+    auth
+      .signUp(values)
+      .then(() => handleLogin(values))
+      .catch((err) => console.log(err));
+  };
+
   const handleLogin = (values) => {
     auth
       .signIn(values.email, values.password)
@@ -90,8 +97,8 @@ const App = () => {
         .catch((err) => console.log(err));
     }
   };
-  // NEEDS WORK
-  const handleAddItemSubmit = (values) => {
+
+  const handleAddItem = (values) => {
     const token = localStorage.getItem("jwt");
     api
       .addNewItem(values, token)
@@ -155,7 +162,7 @@ const App = () => {
       .then((data) => {
         setClothingItems(data);
       })
-      .catch(console.eror);
+      .catch(console.error);
 
     weatherApi
       .getForecastWeather()
@@ -219,7 +226,7 @@ const App = () => {
             <RegistrationModal
               handleCloseModal={handleCloseModal}
               onLoginModal={handleLoginModal}
-              handleLogin={handleLogin}
+              handleRegistration={handleRegistration}
               isOpen={activeModal === "register"}
             />
           )}
@@ -242,7 +249,7 @@ const App = () => {
             <AddItemModal
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "create"}
-              onAddItem={handleAddItemSubmit}
+              handleAddItem={handleAddItem}
             />
           )}
           {activeModal === "preview" && (
@@ -255,7 +262,7 @@ const App = () => {
           {activeModal === "delete" && (
             <DeleteModal
               onClose={handleCloseModal}
-              onClick={handleDeleteItem}
+              handleDeleteItem={handleDeleteItem}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

@@ -1,15 +1,12 @@
 import "../blocks/RegistrationModal.css";
 import { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ModalWithForm from "./ModalWithForm";
-import * as auth from "../utils/auth";
 const RegistrationModal = ({
   handleCloseModal,
   isOpen,
   onLoginModal,
-  handleLogin,
+  handleRegistration,
 }) => {
-  const history = useHistory();
   const [values, setValues] = useState({
     name: "",
     avatar: "",
@@ -19,17 +16,7 @@ const RegistrationModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    auth
-      .signUp(values)
-      .then(() => {
-        auth.signIn(values.email, values.password).then((data) => {
-          if (data.token) {
-            handleLogin();
-            history.push("/profile");
-          }
-        });
-      })
-      .catch((err) => console.log(err));
+    handleRegistration(values);
   };
 
   const handleChange = (e) => {

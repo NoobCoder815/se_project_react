@@ -6,7 +6,6 @@ import CurrentUserContext from "../contexts/CurrentUserContext";
 
 const EditProfileModal = ({ handleCloseModal, isOpen, updateProfileData }) => {
   const currentUser = React.useContext(CurrentUserContext);
-  console.log(currentUser);
   const [values, setValues] = useState({
     name: currentUser.data.name,
     avatar: currentUser.data.avatar,

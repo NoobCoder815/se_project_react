@@ -2,7 +2,6 @@ import "../blocks/Header.css";
 import React from "react";
 import { currentDate } from "../utils/constants.js";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-import avatar from "../images/avatar.jpg";
 import logo from "../images/logo.png";
 import ToggleSwitch from "./ToggleSwitch.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";

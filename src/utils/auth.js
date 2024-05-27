@@ -1,5 +1,8 @@
-import { request, checkServerResponse } from "./api.js";
-const baseUrl = "http://localhost:3001";
+import { request } from "./api.js";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.richj.crabdance.com"
+    : "http://localhost:3001";
 
 export function signUp({ name, avatar, email, password }) {
   return request(`${baseUrl}/signup`, {
